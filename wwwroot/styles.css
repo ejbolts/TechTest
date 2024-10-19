@@ -90,3 +90,32 @@ p#output {
   text-align: center;
   min-height: 1.5em;
 }
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.8em;
+  }
+
+  input[type="text"] {
+    width: 80%;
+    max-width: none;
+  }
+
+  button.convert-button {
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5em;
+  }
+
+  button.convert-button {
+    font-size: 0.8em;
+  }
+
+  p#output {
+    font-size: 1em;
+  }
+}
