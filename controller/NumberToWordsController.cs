@@ -50,9 +50,12 @@ namespace NumberToWordsApi.Controllers
             if (number == 0)
                 return "ZERO DOLLARS";
 
+            string negativePrefix = number < 0 ? "NEGATIVE " : "";
+            number = Math.Abs(number);
+
             // Split the number into dollars and cents
             var dollars = (long)Math.Floor(number);
-            var cents = (long)Math.Round((number - dollars) * 100);
+            var cents = (long)Math.Floor((number - dollars) * 100);
 
             // If cents equal 100, convert them into 1 dollar and adjust dollars and cents
             if (cents == 100)
@@ -70,7 +73,7 @@ namespace NumberToWordsApi.Controllers
                 words += AsWords(cents) + " CENT" + (cents > 1 ? "S" : "");
             }
 
-            return words;
+            return negativePrefix + words;
         }
 
         private static string AsWords(long number)

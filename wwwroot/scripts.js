@@ -8,15 +8,16 @@ function convertNumber() {
             "Error: Please enter a number.";
         return;
     }
-    if (number < 0) {
-        document.getElementById("output").innerText =
-            "Error: Please enter a positive number.";
-        return;
-    }
 
     if (isNaN(number)) {
         document.getElementById("output").innerText =
             "Error: Invalid number format.";
+        return;
+    }
+
+    if (number.includes('.') && number.split('.')[1].length > 2) {
+        document.getElementById("output").innerText =
+            "Error: Please enter a number with at most 2 decimal places.";
         return;
     }
 
