@@ -5,60 +5,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Number to Words Converter</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="scripts.js"></script>
   </head>
   <body>
-    <h1>Number to Words Converter</h1>
-    <input
-      type="text"
-      id="numberInput"
-      placeholder="Enter a number (e.g. 123.45)"
-    />
-    <button onclick="convertNumber()">Convert to Words</button>
+    <h1 class="title-animated">Number to Words Converter</h1>
+
+    <div class="input-container">
+      <input
+        type="text"
+        id="numberInput"
+        placeholder="Enter a number (e.g. 123.45)"
+      />
+      <button class="reset-button" onclick="resetFields()">Reset</button>
+    </div>
+
+    <button class="convert-button" onclick="convertNumber()">
+      Convert to Words
+    </button>
     <p id="output"></p>
-
-    <script>
-      function convertNumber() {
-        const number = document.getElementById("numberInput").value;
-
-        // Client-side validation for number limits
-        const maxNumber = 9223372036854775807; // long.MaxValue
-        const minNumber = -9223372036854775808; // long.MinValue
-
-        if (isNaN(number)) {
-          document.getElementById("output").innerText =
-            "Error: Invalid number format.";
-          return;
-        }
-
-        const numericValue = parseFloat(number);
-
-        if (numericValue > maxNumber || numericValue < minNumber) {
-          document.getElementById(
-            "output"
-          ).innerText = `Error: Number is out of range.`;
-          return;
-        }
-
-        fetch(`/api/NumberToWords/convert?number=${number}`)
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error("Network response was not ok");
-            }
-            return response.json();
-          })
-          .then((data) => {
-            if (data.words) {
-              document.getElementById("output").innerText = data.words;
-            } else {
-              document.getElementById("output").innerText =
-                "Error: " + (data.error || "Unknown error");
-            }
-          })
-          .catch((error) => {
-            document.getElementById("output").innerText =
-              "Error: " + error.message;
-          });
-      }
-    </script>
   </body>
 </html>
