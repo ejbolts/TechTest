@@ -27,11 +27,11 @@ namespace NumberToWordsApi.Controllers
             {
                 // Check if the numeric value exceeds the range of a long
                 if (numericValue > long.MaxValue || numericValue < long.MinValue)
-                    return BadRequest(new { error = "Number is out of range. Please enter a number between the max and min number of a 64int" });
+                    return BadRequest(new { error = "Number is out of range. Please enter a number between the max and min number of a 64-bit integer." });
 
                 try
                 {
-                    string result = ConvertToWords((long)numericValue);
+                    string result = ConvertToWords(numericValue);
                     return Ok(new { words = result });
                 }
                 catch (ArgumentOutOfRangeException ex)
@@ -50,10 +50,9 @@ namespace NumberToWordsApi.Controllers
             if (number == 0)
                 return "ZERO DOLLARS";
 
-
-
-            var dollars = (long)number;
-            var cents = (long)((number - dollars) * 100);
+            // Split the number into dollars and cents
+            var dollars = (long)Math.Floor(number);
+            var cents = (long)Math.Round((number - dollars) * 100);
 
             var words = dollars > 0 ? AsWords(dollars) + " DOLLARS" : "";
 
@@ -105,7 +104,5 @@ namespace NumberToWordsApi.Controllers
 
             return AsWords(number / 1_000_000_000_000_000_000) + " QUINTILLION" + (number % 1_000_000_000_000_000_000 > 0 ? " " + AsWords(number % 1_000_000_000_000_000_000) : "");
         }
-
-
     }
 }
