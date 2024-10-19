@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Globalization;
 
-namespace NumberToWordsApi.Controllers
+namespace TechTest.Controller
 {
     [ApiController]
     [Route("/api/[controller]")]
