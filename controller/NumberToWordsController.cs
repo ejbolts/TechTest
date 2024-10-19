@@ -54,13 +54,20 @@ namespace NumberToWordsApi.Controllers
             var dollars = (long)Math.Floor(number);
             var cents = (long)Math.Round((number - dollars) * 100);
 
-            var words = dollars > 0 ? AsWords(dollars) + " DOLLARS" : "";
+            // If cents equal 100, convert them into 1 dollar and adjust dollars and cents
+            if (cents == 100)
+            {
+                dollars += 1;
+                cents = 0;
+            }
+
+            var words = dollars > 0 ? AsWords(dollars) + " DOLLAR" + (dollars > 1 ? "S" : "") : "";
 
             if (cents > 0)
             {
                 if (words.Length > 0)
                     words += " AND ";
-                words += AsWords(cents) + " CENTS";
+                words += AsWords(cents) + " CENT" + (cents > 1 ? "S" : "");
             }
 
             return words;
