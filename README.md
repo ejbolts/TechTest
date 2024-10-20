@@ -24,3 +24,7 @@ docker run -d --rm -p 8080:8080 --name techtest-container techtest-image
 ```
 The application should be hosted at `http://localhost:8080` 
 
+### Test the App
+```sh
+dotnet test
+```
