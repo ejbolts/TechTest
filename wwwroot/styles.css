@@ -93,6 +93,12 @@ p#output {
   margin-top: 0px;
 }
 
+footer {
+  position: fixed;
+  bottom: 0;
+  margin: 20px;
+}
+
 @media (max-width: 768px) {
   h1 {
     font-size: 1.8em;
