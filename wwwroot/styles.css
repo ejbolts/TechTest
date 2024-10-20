@@ -70,6 +70,7 @@ input[type="text"]:focus {
 
 button.convert-button {
   padding: 12px 25px;
+  margin-bottom: 10px;
   border: 2px solid #febe10;
   border-radius: 10px;
   background-color: #febe10;
@@ -89,6 +90,7 @@ p#output {
   font-size: 1.2em;
   text-align: center;
   min-height: 1.5em;
+  margin-top: 0px;
 }
 
 @media (max-width: 768px) {

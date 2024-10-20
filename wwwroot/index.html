@@ -1,12 +1,10 @@
 ﻿<!DOCTYPE html>
-
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Number to Words Converter</title>
     <link rel="stylesheet" href="styles.css" />
-    <script src="scripts.js"></script>
   </head>
   <body>
     <h1 class="title-animated">Number to Words Converter</h1>
@@ -17,12 +15,51 @@
         id="numberInput"
         placeholder="Enter a number (e.g. 123.45)"
       />
-      <button class="reset-button" onclick="resetFields()">Reset</button>
+      <button class="reset-button">Reset</button>
     </div>
 
-    <button class="convert-button" onclick="convertNumber()">
-      Convert to Words
-    </button>
-    <p id="output"></p>
+    <button class="convert-button">Convert to Words</button>
+
+    <svg
+      id="spinner"
+      style="visibility: hidden; margin-top: 10px"
+      width="36"
+      height="36"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <style>
+        .spinner_qM83 {
+          animation: spinner_8HQG 1.05s infinite;
+          fill: #ffffff;
+        }
+        .spinner_oXPr {
+          animation-delay: 0.1s;
+        }
+        .spinner_ZTLf {
+          animation-delay: 0.2s;
+        }
+        @keyframes spinner_8HQG {
+          0%,
+          57.14% {
+            animation-timing-function: cubic-bezier(0.33, 0.66, 0.66, 1);
+            transform: translate(0);
+          }
+          28.57% {
+            animation-timing-function: cubic-bezier(0.33, 0, 0.66, 0.33);
+            transform: translateY(-6px);
+          }
+          100% {
+            transform: translate(0);
+          }
+        }
+      </style>
+      <circle class="spinner_qM83" cx="4" cy="12" r="3" />
+      <circle class="spinner_qM83 spinner_oXPr" cx="12" cy="12" r="3" />
+      <circle class="spinner_qM83 spinner_ZTLf" cx="20" cy="12" r="3" />
+    </svg>
+    <p id="output" style="margin: 0"></p>
+
+    <script src="scripts.js" defer></script>
   </body>
 </html>
