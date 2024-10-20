@@ -5,6 +5,8 @@ A simple web application that converts numeric values into their corresponding w
 To use the app, visit the following link in your browser:
 [**Live Demo**](https://techtest-2vrm.onrender.com/)
 
+⚠️ *Please allow up to 50 seconds for the server instance to spin up from cold start if needed.*
+
 ## Build Solution Locally
 
 ### Clone and Run the Repository
